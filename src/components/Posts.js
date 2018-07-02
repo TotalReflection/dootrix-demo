@@ -16,7 +16,7 @@ class Posts extends Component {
 
   render() {
     const postItems = this.props.posts.map(post => (
-      <div key={post.id}>
+      <div key={post.postID}>
         <h3>{post.title}</h3>
         <p>{post.body}</p>
       </div>
