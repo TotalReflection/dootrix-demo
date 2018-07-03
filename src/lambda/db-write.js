@@ -13,7 +13,7 @@ exports.handler = (event, context, callback) => {
  var body = request.body;
  var title = request.title;
  var done = request.done;
- var userID = '1';
+ var userID = request.userID;
 
 
  var current_date = (new Date()).valueOf().toString();

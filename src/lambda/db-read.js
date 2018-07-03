@@ -6,8 +6,15 @@ const doClient = new AWS.DynamoDB.DocumentClient({
 });
 
 exports.handler = (event, context, callback) => {
+
  var userID = 1;
- console.log('userid' + userID)
+
+ if (event.headers !== null && event.headers !== undefined) {
+  if (event.headers['userID'] !== undefined && event.headers['userID'] !== null && event.headers['userID'] !== "") {
+      console.log("Received userID: " + event.headers.userID);
+      userID = event.headers.userID;
+  }
+}
 
  var params = {
   TableName: 'posts',
@@ -19,7 +26,17 @@ exports.handler = (event, context, callback) => {
 
  doClient.scan(params, function (err, data) {
   if (err) {
-   callback(err, null);
+   var badResponse = {
+    "statusCode": 500,
+    "headers": {
+     "X-Requested-With": '*',
+     "Access-Control-Allow-Headers": 'Content-Type,X-Amz-Date,Authorization,X-Api-Key,x-requested-with',
+     "Access-Control-Allow-Origin": '*',
+     "Access-Control-Allow-Methods": 'POST,GET,OPTIONS'
+    },
+    "body": JSON.stringify(err)
+   }
+   callback(err, badResponse);
   } else {
    var response = {
     "statusCode": 200,
