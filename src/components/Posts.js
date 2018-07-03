@@ -12,6 +12,13 @@ class Posts extends Component {
   componentWillReceiveProps(nextProps) {
     if (nextProps.newPost) {
       this.props.posts.unshift(nextProps.newPost);
+    } else if (nextProps.updatePost){
+      this.props.posts =  this.props.posts.map(item => {
+        if(item.postID === nextProps.updatePost.postID){
+          return { ...item, ...nextProps.updatePost }
+        }
+        return item
+      })
     }
   }
 
@@ -31,12 +38,14 @@ class Posts extends Component {
 Posts.propTypes = {
   fetchPosts: PropTypes.func.isRequired,
   posts: PropTypes.array.isRequired,
-  newPost: PropTypes.object
+  newPost: PropTypes.object,
+  updatePost: PropTypes.object
 };
 
 const mapStateToProps = state => ({
   posts: state.posts.items,
-  newPost: state.posts.item
+  newPost: state.posts.item,
+  updatePost: state.posts.update
 });
 
 export default connect(mapStateToProps, { fetchPosts })(Posts);
