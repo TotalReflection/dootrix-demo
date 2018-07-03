@@ -7,10 +7,10 @@ const doClient = new AWS.DynamoDB.DocumentClient({
 
 exports.handler = (event, context, callback) => {
 
- var userID = 1;
+ var userID = '0';
 
  if (event.headers !== null && event.headers !== undefined) {
-  if (event.headers['userID'] !== undefined && event.headers['userID'] !== null && event.headers['userID'] !== "") {
+  if (event.headers['userID']) {
       console.log("Received userID: " + event.headers.userID);
       userID = event.headers.userID;
   }
@@ -36,7 +36,7 @@ exports.handler = (event, context, callback) => {
     },
     "body": JSON.stringify(err)
    }
-   callback(err, badResponse);
+   callback(err, err);
   } else {
    var response = {
     "statusCode": 200,
