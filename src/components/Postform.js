@@ -25,8 +25,8 @@ class PostForm extends Component {
     const post = {
       title: this.state.title,
       body: this.state.body,
-      complete:false,
-      userID:1
+      done: false,
+      userID:"1"
     };
 
     this.props.createPost(post);
