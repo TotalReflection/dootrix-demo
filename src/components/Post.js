@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { updatePost } from '../actions/postActions';
 
@@ -13,19 +12,12 @@ class Post extends Component {
     body: this.props.body,
     userID:'1'
    }
- 
-
  this.onDone = this.onDone.bind(this);
   }
 
  onDone = (e) => {
   e.preventDefault();
   console.log(`hello there${this.state.done}`)
-  this.setState({
-   done : 'true',
-   style: {backgroundColor:'green'}
-  });
-
   const update = {
    postID : this.state.postID,
    title: this.state.title,
@@ -33,16 +25,16 @@ class Post extends Component {
    done: 'true',
    userID:'1'
  };
-
  this.props.updatePost(update);
 
-  console.log(`oh no${this.state.done}`)
+
  }
 
   render() {
+    let style = this.props.done === 'true' ? {backgroundColor:'green'}: {};
     return (
      <div key={this.props.postID}>
-     <h3>{this.props.title} <button style={this.state.style} onClick={this.onDone} done={this.state.done} /> </h3>
+     <h3>{this.props.title} <button style={style} onClick={this.onDone} done={this.state.done} /> </h3>
      <p>{this.props.body}</p>
     </div>
     );
