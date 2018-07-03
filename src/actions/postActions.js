@@ -13,7 +13,7 @@ export const fetchPosts = () => dispatch => {
     .then(posts =>
       dispatch({
         type: FETCH_POSTS,
-        payload: posts
+        payload: posts.sort( (a,b) => b.targetdate - a.targetdate) 
       })
     
     );

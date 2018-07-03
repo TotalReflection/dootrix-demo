@@ -32,9 +32,10 @@ class Post extends Component {
 
   render() {
     let style = this.props.done === 'true' ? {backgroundColor:'green'}: {};
+    let date = new Date(this.props.targetdate);
     return (
      <div key={this.props.postID}>
-     <h3>{this.props.title} <button style={style} onClick={this.onDone} done={this.state.done} /> </h3>
+     <h3>{this.props.title} <button style={style} onClick={this.onDone} done={this.state.done} /> </h3> <span>{date.toLocaleString()}</span>
      <p>{this.props.body}</p>
     </div>
     );

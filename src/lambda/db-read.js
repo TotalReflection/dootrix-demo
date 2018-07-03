@@ -26,16 +26,6 @@ exports.handler = (event, context, callback) => {
 
  doClient.scan(params, function (err, data) {
   if (err) {
-   var badResponse = {
-    "statusCode": 500,
-    "headers": {
-     "X-Requested-With": '*',
-     "Access-Control-Allow-Headers": 'Content-Type,X-Amz-Date,Authorization,X-Api-Key,x-requested-with',
-     "Access-Control-Allow-Origin": '*',
-     "Access-Control-Allow-Methods": 'POST,GET,OPTIONS'
-    },
-    "body": JSON.stringify(err)
-   }
    callback(err, err);
   } else {
    var response = {

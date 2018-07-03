@@ -21,7 +21,7 @@ class PostForm extends Component {
 
   onSubmit(e) {
     e.preventDefault();
-
+if (this.state.title && this.state.body){
     const post = {
       title: this.state.title,
       body: this.state.body,
@@ -30,6 +30,10 @@ class PostForm extends Component {
     };
 
     this.props.createPost(post);
+  }
+  else{
+    window.alert("you need both a title and body");
+  }
   }
 
   render() {

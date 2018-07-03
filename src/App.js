@@ -18,7 +18,7 @@ class App extends Component {
           </header>
           <PostForm />
           <hr />
-          <Posts />
+          <Posts /> 
         </div>
       </Provider>
     );

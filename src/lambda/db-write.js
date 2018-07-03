@@ -7,11 +7,12 @@ const crypto = require('crypto');
     
 exports.handler = (event, context, callback) => {
    
-    const request = JSON.parse(event.body)
+    const request = JSON.parse(event.body);
     var body = request.body;
     var title = request.title;
     var done = request.done;
     var userID = '1';
+    var targetdate = Date.now();
     
     
     var current_date = (new Date()).valueOf().toString();
@@ -26,7 +27,7 @@ exports.handler = (event, context, callback) => {
           body:body,
           title:title,
           done:done,
-          targetdate:Date.now().parse,
+          targetdate:Date.now()
             }
         }
         
@@ -50,7 +51,8 @@ exports.handler = (event, context, callback) => {
             "userID":userID,
             "body":body,
             "title":title,
-            "done":done
+            "done":done,
+            "targetdate":targetdate
         })
 }
 

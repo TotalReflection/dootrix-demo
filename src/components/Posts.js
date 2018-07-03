@@ -10,6 +10,7 @@ class Posts extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
+    console.log("Re-Render")
     if (nextProps.newPost) {
       this.props.posts.unshift(nextProps.newPost);
     } else if (nextProps.updatePost){
@@ -24,7 +25,7 @@ class Posts extends Component {
 
   render() {
     const postItems = this.props.posts.map(post => (
-      <Post key={post.postID} postID={post.postID} title={post.title} done={post.done.toString()} body={post.body} />
+      <Post key={post.postID} postID={post.postID} title={post.title} done={post.done.toString()} body={post.body} targetdate={post.targetdate} />
     ));
     return (
       <div>

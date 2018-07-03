@@ -19,14 +19,12 @@ export default function(state = initialState, action) {
         item: action.payload
       };
       case UPDATE_POST:
-      console.log("sucess: " + JSON.stringify(state));
       const updatedItems = state.items.map(item => {
         if(item.postID === action.payload.postID){
           return { ...item, ...action.payload }
         }
         return item
       })
-      console.log("sucess: " + JSON.stringify(updatedItems));
       return {
         items :updatedItems,
         item: {},

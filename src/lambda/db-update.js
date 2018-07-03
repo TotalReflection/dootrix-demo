@@ -15,6 +15,7 @@ exports.handler = (event, context, callback) => {
  var userID = request.userID;
  var title = request.title;
  var done = request.done;
+ var targetDate = targetDate;
  
  var params = {
   TableName: 'posts',
@@ -52,7 +53,8 @@ exports.handler = (event, context, callback) => {
      "userID": userID,
      "body": body,
      "title": title,
-     "done": done
+     "done": done,
+     "targetDate":targetDate
     })
    }
 
