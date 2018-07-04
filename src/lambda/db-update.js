@@ -7,16 +7,19 @@ const doClient = new AWS.DynamoDB.DocumentClient({
 
 exports.handler = (event, context, callback) => {
 
+try {
  const request = event.body;
-
  var postID = request.postID;
-  var body = request.body;
+ var body = request.body;
  var done = request.done;
  var userID = request.userID;
  var title = request.title;
  var done = request.done;
  var targetDate = targetDate;
- 
+}catch(err){
+  callback(err, null)
+}
+
  var params = {
   TableName: 'posts',
   Key: {

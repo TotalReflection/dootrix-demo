@@ -8,16 +8,17 @@ var getParams = { method: 'GET',
                cache: 'default' };
 
 export const fetchPosts = () => dispatch => {
-  fetch('https://nbv21y1t0h.execute-api.eu-west-2.amazonaws.com/db-handler/db-handler',getParams)
-  .then(res => res.json())
-    .then(posts =>
-      dispatch({
-        type: FETCH_POSTS,
-        payload: posts.sort( (a,b) => b.targetdate - a.targetdate) 
-      })
-    
-    );
+fetch('https://nbv21y1t0h.execute-api.eu-west-2.amazonaws.com/db-handler/db-handler',getParams)
+.then(handleErrors)
+.then(res => res.json())
+.then(posts =>
+  dispatch({
+    type: FETCH_POSTS,
+    payload: posts.sort( (a,b) => b.targetdate - a.targetdate) 
+  })
+  );
 };
+
 
 
 export const createPost = postData => dispatch => {
@@ -30,6 +31,7 @@ export const createPost = postData => dispatch => {
                 body: JSON.stringify(postData)
               };
   fetch('https://nbv21y1t0h.execute-api.eu-west-2.amazonaws.com/db-handler/db-handler', postParams)
+    .then(handleErrors)
     .then(res => res.json())
     .then(post =>{
       console.log("Server Returned" + JSON.stringify(post));
@@ -53,6 +55,7 @@ export const updatePost = postData => dispatch => {
                 body: JSON.stringify(postData)
               };
   fetch('https://nbv21y1t0h.execute-api.eu-west-2.amazonaws.com/db-handler/db-handler', updateParams)
+    .then(handleErrors)
     .then(res => res.json())
     .then(post =>{
       console.log("Server Returned" + JSON.stringify(post));
@@ -63,3 +66,11 @@ export const updatePost = postData => dispatch => {
     }
     );
 };
+
+
+function handleErrors(response) {
+  if (!response.ok) {
+      throw Error(response.statusText);
+  }
+  return response;
+}

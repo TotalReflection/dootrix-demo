@@ -28,8 +28,7 @@ class Posts extends Component {
       <Post key={post.postID} postID={post.postID} title={post.title} done={post.done.toString()} body={post.body} targetdate={post.targetdate} />
     ));
     return (
-      <div>
-        <h1>Posts</h1>
+      <div className={"post-list"}>
         {postItems}
       </div>
     );

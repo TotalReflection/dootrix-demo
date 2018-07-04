@@ -1,0 +1,21 @@
+
+.showForm-enter {
+ opacity: 0.01;
+ transform-origin: bottom left;
+ transform: scaleY(0.5) translateY(50%);
+}
+.showForm-enter-active {
+ opacity: 1;
+ transform: scale(1) translateY(0%);
+ transition: all 300ms ease-out;
+}
+.showForm-exit {
+ opacity: 1;
+ transform: scale(1) translateY(0%);
+}
+.showForm-exit-active {
+ opacity: 0.01;
+ transform-origin: bottom left;
+ transform: scaleY(0.5) translateY(50%);
+ transition: all 300ms ease-out;
+}

@@ -1,6 +1,9 @@
 .App {
   width: 90%;
-  margin: auto;
+  margin: 10px auto;
+  background-color: rgba(220, 220, 220, 1);
+  padding:20px;
+  border-radius: 5px;
 }
 
 .App-logo {
@@ -9,14 +12,17 @@
 }
 
 .App-header {
-  background-color: #222;
-  height: 150px;
+  background-color: rgb(100,200,100);
   padding: 20px;
   color: white;
+  border-radius: 5px;
 }
 
 .App-title {
-  font-size: 1.5em;
+  font-size: 30px;
+  line-height:30px;
+  clear: both;
+  min-height:30px;
 }
 
 .App-intro {
@@ -30,4 +36,142 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.header-name {
+  font-size:10px;
+  white-space: nowrap;
+  color:rgba(255, 255, 255, 1);
+}
+
+.hide-wrapper {
+  overflow:hidden;
+}
+.app-max {
+  max-width:600px;
+}
+.form-text:focus,
+.form-text:active,
+.button-reset:focus,
+.button-reset:active
+{
+  border: 0;
+  outline: none;
+  border: none;
+}
+
+.button-done {
+  width: 40px;
+  height:40px;
+  border-radius: 5px;
+  font-size:20px;
+  color:rgba(100, 100, 100, 0.8);
+  float:right;
+}
+
+.button-add {
+  width: 40px;
+  height:40px;
+  border-radius: 5px;
+  font-size:20px;
+  color:rgba(100, 100, 100, 0.8);
+  float:right;
+}
+
+.post-wrapper {
+  width:auto%;
+  background-color: rgba(200, 200, 200, 1);
+  padding:20px;
+  border-radius: 5px;
+  margin: 20px 0 20px 0;
+}
+
+.post-title {
+  margin: 0;
+  padding-bottom: 5px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;\
+  color: rgba(50, 50, 50, 1);
+  border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+  border:none;
+}
+
+.form-text {
+  min-height: 20px;
+  width: 200px;
+  padding:5px 5px;
+  margin:0px 10px;
+  border-radius:5px;
+  color:rgba(60, 60, 60, 1);
+  resize: none;
+  border: 0;
+  outline: none;
+  border: none;
+}
+
+.form-text::placeholder {
+  color:rgba(60, 60, 60, 0.3);
+}
+
+
+.button-submit {
+  width: auto;
+  height:40px;
+  border-radius: 5px;
+  font-size:12px;
+  padding: 0 10px;
+  background-color:rgba(100, 100, 100, 0.8);
+  color:rgba(255, 255, 255, 0.8);
+  float:right;
+  margin: 0px 10px 0px 0px;
+
+}
+
+.post-form {
+  clear: both;
+  width:100%;
+  background-color: rgba(200, 200, 200, 0.8);
+  padding:10px 0px;
+  border-radius: 7px;
+  margin: 0px 0px 0px 0px;
+}
+
+.form-content {
+  margin:10px auto 0px auto;
+  padding-top:5px;
+}
+
+.form-wrapper {
+}
+
+.post-wrapper:last-child {
+  margin-bottom:0px;
+}
+
+.post-date{
+  vertical-align:middle;
+  font-size:10px;
+  margin:auto 0px auto 10px;
+  color:rgba(50, 50, 50, 0.8);
+  white-space: nowrap;
+}
+
+.post-body{
+  max-width:80%;
+  margin-top:10px;
+  font-size:14px;
+  background-color: rgba(250, 250, 250, 0.2);
+  padding: 10px;
+  border-radius:4px;
+  word-break: break-all;
+}
+
+.post-header{
+  font-size:14px;
+  color:rgba(50, 50, 50, 1);
+  min-height:25px;
+}
+
+.post-title{
+  font-weight:800;
 }

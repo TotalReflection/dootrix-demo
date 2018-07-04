@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { updatePost } from '../actions/postActions';
-
+import { CSSTransition } from 'react-transition-group';
+import '../animation.css';
 class Post extends Component {
  constructor(props) {
   super(props)
@@ -31,12 +32,23 @@ class Post extends Component {
  }
 
   render() {
-    let style = this.props.done === 'true' ? {backgroundColor:'green'}: {};
+    let style = this.props.done === 'true' ? {backgroundColor:'green', color:'white'}: {};
     let date = new Date(this.props.targetdate);
+    let { done } = this.state;
     return (
-     <div key={this.props.postID}>
-     <h3>{this.props.title} <button style={style} onClick={this.onDone} done={this.state.done} /> </h3> <span>{date.toLocaleString()}</span>
-     <p>{this.props.body}</p>
+     <div className={"post-wrapper"} key={this.props.postID}>
+     <span className={"post-header"}>
+     <span className={"post-title"}>{this.props.title}</span>   <span className={"post-date"}>{date.toLocaleString()}</span>
+   
+
+     <span className={"post-button"}>
+      <button className={"button-reset button-add"} style={style} onClick={this.onDone} done={this.state.done}>
+     ✓
+     </button>
+     </span>
+     </span>
+    
+     <div className={"post-body"}>{this.props.body}</div>
     </div>
     );
   }
