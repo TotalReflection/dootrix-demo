@@ -32,6 +32,10 @@ class PostForm extends Component {
     };
     this.setState(this.showForm:false);
     this.props.createPost(post);
+    this.setState({
+      title:'',
+      body:''
+    })
   }
   else{
     window.alert("you need both a title and body");
