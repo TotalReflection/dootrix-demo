@@ -35,17 +35,19 @@ class Post extends Component {
     let style = this.props.done === 'true' ? {backgroundColor:'green', color:'white'}: {};
     let date = new Date(this.props.targetdate);
     let { done } = this.state;
+    let opacity = this.state.done === "true" ? {opacity:'0.5'} : {};
     return (
-     <div className={"post-wrapper"} key={this.props.postID}>
-     <span className={"post-header"}>
-     <span className={"post-title"}>{this.props.title}</span>   <span className={"post-date"}>{date.toLocaleString()}</span>
-   
-
+     <div className={"post-wrapper"} style={opacity} key={this.props.postID}>
      <span className={"post-button"}>
       <button className={"button-reset button-add"} style={style} onClick={this.onDone} done={this.state.done}>
      ✓
      </button>
      </span>
+     <span className={"post-header"}>
+     <span className={"post-title"}>{this.props.title}</span>   <span className={"post-date"}>{date.toLocaleString()}</span>
+   
+
+     
      </span>
     
      <div className={"post-body"}>{this.props.body}</div>

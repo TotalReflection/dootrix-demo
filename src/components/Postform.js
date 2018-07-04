@@ -38,7 +38,7 @@ class PostForm extends Component {
     })
   }
   else{
-    window.alert("you need both a title and body");
+    window.alert("You must input both an Event and Details");
   }
   }
 
@@ -50,7 +50,7 @@ class PostForm extends Component {
 
     return (
       <div className={"hide-wrapper app-max"}>  <header className="App-header">
-      <div className="App-title"><span>Event Planner <span className={"header-name"}>...by Duncan Lawson </span> </span><button className={"button-reset button-add"} onClick={event => {this.setState({showForm: !this.state.showForm})} } >+</button></div> 
+      <div className="App-title"><button className={"button-reset button-add"} onClick={event => {this.setState({showForm: !this.state.showForm})} } >+</button><span>Event Planner <span className={"header-name"}>...by Duncan Lawson </span> </span></div> 
       <div className={"form-wrapper"}>
         <CSSTransition in={showForm} timeout={300} classNames="showForm"  unmountOnExit onExited={() => { this.setState({ showForm: false  });  }}  >
         <form className={"hide-wrapper app-max form-content"} onSubmit={this.onSubmit}>
@@ -70,9 +70,9 @@ class PostForm extends Component {
               value={this.state.body}
             />
             </span>
-            <span>
-             <button className={"button-reset button-submit"} type="submit">Store</button>
-             </span>
+            <div>
+             <button className={"button-reset button-submit"} type="submit">Post ↵</button>
+             </div>
           </div>
         </form>
         </CSSTransition>

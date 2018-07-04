@@ -4,6 +4,7 @@
   background-color: rgba(220, 220, 220, 1);
   padding:20px;
   border-radius: 5px;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .App-logo {
@@ -25,18 +26,6 @@
   min-height:30px;
 }
 
-.App-intro {
-  font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
 
 .header-name {
   font-size:10px;
@@ -50,6 +39,7 @@
 .app-max {
   max-width:600px;
 }
+.button-reset,
 .form-text:focus,
 .form-text:active,
 .button-reset:focus,
@@ -74,7 +64,7 @@
   height:40px;
   border-radius: 5px;
   font-size:20px;
-  color:rgba(100, 100, 100, 0.8);
+  color:rgba(100, 100, 100, 1);
   float:right;
 }
 
@@ -89,7 +79,6 @@
 .post-title {
   margin: 0;
   padding-bottom: 5px;
-  font-family: Arial, Helvetica, sans-serif;
   font-size: 20px;\
   color: rgba(50, 50, 50, 1);
   border-bottom: 2px solid rgba(255, 255, 255, 0.2);
@@ -98,19 +87,21 @@
 
 .form-text {
   min-height: 20px;
-  width: 200px;
+  width: 80%;
   padding:5px 5px;
-  margin:0px 10px;
+  margin:5px 10px;
   border-radius:5px;
   color:rgba(60, 60, 60, 1);
   resize: none;
   border: 0;
   outline: none;
   border: none;
+  flex-direction: column;
 }
 
 .form-text::placeholder {
   color:rgba(60, 60, 60, 0.3);
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 
@@ -120,7 +111,7 @@
   border-radius: 5px;
   font-size:12px;
   padding: 0 10px;
-  background-color:rgba(100, 100, 100, 0.8);
+  background-color:rgba(100, 100, 100, 1);
   color:rgba(255, 255, 255, 0.8);
   float:right;
   margin: 0px 10px 0px 0px;
@@ -151,9 +142,10 @@
 .post-date{
   vertical-align:middle;
   font-size:10px;
-  margin:auto 0px auto 10px;
+  margin:10px 0px auto 0px;
   color:rgba(50, 50, 50, 0.8);
   white-space: nowrap;
+  display:block;
 }
 
 .post-body{
@@ -163,15 +155,20 @@
   background-color: rgba(250, 250, 250, 0.2);
   padding: 10px;
   border-radius:4px;
-  word-break: break-all;
+  word-break: break-word;
 }
 
 .post-header{
   font-size:14px;
   color:rgba(50, 50, 50, 1);
   min-height:25px;
+  word-break: break-word;
 }
 
 .post-title{
   font-weight:800;
+}
+
+.post-button {
+  display:block;
 }
